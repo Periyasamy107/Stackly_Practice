@@ -1,0 +1,43 @@
+package com.java.basic;
+
+public class PrimitiveDataTypePractice {
+
+	public static void main(String[] args) {
+
+		/**===============================================================
+		 *                PRIMITIVE DATA TYPES PRACTICE
+		 * ===============================================================
+		 * 
+		 * 8 types (byte, short, int, long, float, double, char, boolean)
+		 * 
+		 * ===============================================================
+		 */
+		
+		System.out.println("============================");
+		System.out.println("PRIMITIVE DATA TYPES");
+		System.out.println("============================");
+		
+		byte byteValue = 10;
+		short shortValue = 1000;
+		int intValue = 100000;
+		long longValue = 1000000000;
+		float floatValue = 555.10560f;
+		double doubleValue = 444.4323443;
+		char charValue = 'A';
+		boolean booleanValue = false;
+		
+		System.out.println("byte    : " + byteValue);
+		System.out.println("short   : " + shortValue);
+		System.out.println("int     : " + intValue);
+		System.out.println("long    : " + longValue);
+		System.out.println("float   : " + floatValue);
+		System.out.println("double  : " + doubleValue);
+		System.out.println("char    : " + charValue);
+		System.out.println("boolean : " + booleanValue);
+		
+		System.out.println("============================");
+
+		
+	}
+
+}
