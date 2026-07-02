@@ -1,1 +1,17 @@
+# Eclipse
 .metadata/
+
+# Java
+*.class
+
+# Maven
+target/
+
+# IntelliJ
+.idea/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
