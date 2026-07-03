@@ -137,34 +137,7 @@ public class StringMethodsPractice {
 		System.out.println(String.valueOf(salary));
 		
 		System.out.println("===================================================");
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 	}
 
 }

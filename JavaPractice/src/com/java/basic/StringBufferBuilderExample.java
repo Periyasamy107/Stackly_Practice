@@ -59,10 +59,7 @@ public class StringBufferBuilderExample {
 		endTime = System.currentTimeMillis();
 		long bufferTime = endTime - startTime;
 		System.out.println("StringBuffer time taken  : " + bufferTime + " ms");
-		
-		
-		
-		
+
 	}
 
 }
