@@ -73,6 +73,7 @@ public class StudentMarkGradeSystem {
 		System.out.print("Computer Networks    : ");
 		int computerNetworks = scanner.nextInt();
 		
+		scanner.close();
 		
 		/*===========================================
 		 *    TOTAL MARKS

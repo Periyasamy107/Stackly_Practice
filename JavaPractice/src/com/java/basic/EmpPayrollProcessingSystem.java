@@ -54,6 +54,8 @@ public class EmpPayrollProcessingSystem {
 		System.out.print("Basic Salary (Rupees)   : ");
 		double basicSalary = scanner.nextDouble();
 		
+		scanner.close();
+		
 		
 		/*======================================================
          * ALLOWANCES
