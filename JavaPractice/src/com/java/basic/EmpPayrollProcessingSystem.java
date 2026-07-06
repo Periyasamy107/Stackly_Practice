@@ -48,7 +48,7 @@ public class EmpPayrollProcessingSystem {
 		System.out.print("Employee Designation    : ");
 		String empDesig = scanner.nextLine();
 		
-		System.out.print("Years Of Expiriencing   : ");
+		System.out.print("Years Of Experiencing   : ");
 		int empYOE = scanner.nextInt();
 		
 		System.out.print("Basic Salary (Rupees)   : ");
@@ -83,12 +83,18 @@ public class EmpPayrollProcessingSystem {
 		
 		double bonus = 0;
 		
-		if(empYOE < 2) {
+		if(empYOE <= 2 && empDesig.toLowerCase().contains("associate") && empDept.toLowerCase().equals("it")) {
 			bonus = basicSalary * 0.02;
-		} else if (empYOE < 5) {
+		} else if (empYOE <= 2 && empDesig.toLowerCase().contains("associate") && empDept.toLowerCase().equals("development")) {
+			bonus = basicSalary * 0.03;
+		} else if (empYOE >= 3 && empYOE <= 5 && empDesig.toLowerCase().contains("junior") && empDept.toLowerCase().equals("it")) {
+			bonus = basicSalary * 0.04;
+		} else if (empYOE >= 3 && empYOE <= 5 && empDesig.toLowerCase().contains("junior") && empDept.toLowerCase().equals("development")) {
 			bonus = basicSalary * 0.05;
-		} else if (empYOE < 10) {
-			bonus = basicSalary * 0.10;
+		} else if (empYOE >= 5 && empYOE <= 10 && empDesig.toLowerCase().contains("senior") && empDept.toLowerCase().equals("it")) {
+			bonus = basicSalary * 0.07;
+		} else if (empYOE >= 5 && empYOE <= 10 && empDesig.toLowerCase().contains("senior") && empDept.toLowerCase().equals("development")) {
+			bonus = basicSalary * 0.09;
 		} else {
 			bonus = basicSalary * 0.15;
 		}
