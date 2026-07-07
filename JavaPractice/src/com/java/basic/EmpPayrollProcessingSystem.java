@@ -99,16 +99,31 @@ public class EmpPayrollProcessingSystem {
 			bonus = basicSalary * 0.15;
 		}
 		
+		/*======================================================
+         * INCREMENT
+         *======================================================
+         */
 		
+		double increment = 0;
+		
+		if(empYOE <= 2) {
+			increment += 3000;
+		} else if (empYOE <= 5) {
+			increment += 5000;
+		} else if (empYOE <= 10) {
+			increment += 10000;
+		} else {
+			increment += 15000;
+		}
 		
 		/*======================================================
          * GROSS SALARY
          *======================================================
          *
-         * GS = DA + HRA + MA + TA + SA + BONUS
+         * GS = DA + HRA + MA + TA + SA + BONUS + increment
          */
 		
-		double gs = da + hra + ma + ta + sa + bonus;
+		double gs = da + hra + ma + ta + sa + bonus + increment;
 		
 		
 		/*======================================================
@@ -219,6 +234,7 @@ public class EmpPayrollProcessingSystem {
 		System.out.println("Travel Allowance      (TA)  : " + ta);
 		System.out.println("Special Allowance     (SA)  : " + sa);
 		System.out.println("Performance Bonus           : " + bonus);
+		System.out.println("Increment Based On YOE      : " + increment);
 		
 		System.out.println();
 		System.out.println("----------------------------------------------");
