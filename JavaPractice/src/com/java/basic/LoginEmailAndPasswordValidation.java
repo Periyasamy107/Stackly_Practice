@@ -25,10 +25,13 @@ public class LoginEmailAndPasswordValidation {
 		
 		scanner.close();
 		
+		String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+		String passwordRegex = "^\\d{10}$";
+		
 		System.out.println();
 		System.out.println("------------------------------------");
 		
-		if(email.contains("@") && email.contains(".") && password.length()==10) {
+		if(email.matches(emailRegex) && password.matches(passwordRegex)) {
 			System.out.println("User Status : Login Successful.");
 		} else {
 			System.out.println("User Status : Not A Valid User");
