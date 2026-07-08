@@ -125,7 +125,7 @@ public class StarPatternsProgram {
 		    System.out.println();
 		}
 		
-		
+		scanner.close();
 		
 		
 	}
