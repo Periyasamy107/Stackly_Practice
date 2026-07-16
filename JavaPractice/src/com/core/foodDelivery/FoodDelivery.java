@@ -16,14 +16,6 @@ public class FoodDelivery {
 
         FoodHelper helper = new FoodHelper();
 
-        DevaBhavan devaBhavan = new DevaBhavan();
-
-        SamyBhavan samyBhavan = new SamyBhavan();
-
-        LinaVegAndNonVeg linaVegAndNonVeg = new LinaVegAndNonVeg();
-
-        YuvishAllFoods yuvishAllFoods = new YuvishAllFoods();
-
         FoodDeliveryMainLogic mainLogic = new FoodDeliveryMainLogic();
 
         boolean isRunning = true;
@@ -31,8 +23,7 @@ public class FoodDelivery {
             int runOrStop = control.runOrStop(scanner);
             switch (runOrStop) {
                 case 1 -> {
-                    mainLogic.programLogic(scanner, shopChoice, samyBhavan, helper, devaBhavan,
-                            linaVegAndNonVeg, yuvishAllFoods, localOrCity);
+                    mainLogic.programLogic(scanner, shopChoice, helper, localOrCity);
                 }
                 case 2 -> {
                     isRunning = false;

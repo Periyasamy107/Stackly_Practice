@@ -7,11 +7,7 @@ public class FoodDeliveryMainLogic {
     public void programLogic(
             Scanner scanner,
             ShopChoice shopChoice,
-            SamyBhavan samyBhavan,
             FoodHelper helper,
-            DevaBhavan devaBhavan,
-            LinaVegAndNonVeg linaVegAndNonVeg,
-            YuvishAllFoods yuvishAllFoods,
             FoodDeliveryLocalOrCity localOrCity
     ) {
         int location = localOrCity.locationChoice(scanner);
@@ -21,6 +17,8 @@ public class FoodDeliveryMainLogic {
                 int shop = shopChoice.localShopChoice(scanner);
                 switch (shop) {
                     case 1 -> {
+                        CommonShopLogic samyBhavan = new CommonShopLogic(0.10, "Samy Bhavan");
+
                         samyBhavan.bookFood();
                         int choice = helper.choiceGetting(scanner);
                         int quantity = helper.quantityGetting(scanner);
@@ -29,6 +27,8 @@ public class FoodDeliveryMainLogic {
                         samyBhavan.status();
                     }
                     case 2 -> {
+                        CommonShopLogic devaBhavan = new CommonShopLogic(0.15, "Deva Bhavan");
+
                         devaBhavan.bookFood();
                         int choice = helper.choiceGetting(scanner);
                         int quantity = helper.quantityGetting(scanner);
@@ -47,6 +47,8 @@ public class FoodDeliveryMainLogic {
                 int shop = shopChoice.cityShopChoice(scanner);
                 switch (shop) {
                     case 1 -> {
+                        CommonShopLogic linaVegAndNonVeg = new CommonShopLogic(0.30, "Lina Veg And Non Veg");
+
                         linaVegAndNonVeg.bookFood();
                         int choice = helper.choiceGetting(scanner);
                         int quantity = helper.quantityGetting(scanner);
@@ -55,6 +57,8 @@ public class FoodDeliveryMainLogic {
                         linaVegAndNonVeg.status();
                     }
                     case 2 -> {
+                        CommonShopLogic yuvishAllFoods = new CommonShopLogic(0.35, "Yuvish All Foods");
+
                         yuvishAllFoods.bookFood();
                         int choice = helper.choiceGetting(scanner);
                         int quantity = helper.quantityGetting(scanner);
