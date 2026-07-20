@@ -1,0 +1,139 @@
+30-06-2026(Tuesday):
+====================
+1) What is a JIT compiler?
+2) Difference between compiler and interpreter?
+3) What are the two types of main memory?
+
+01-07-2026(Wednesday):
+======================
+1) Primitive types program.
+2) Operators program.
+
+02-07-2026(Thursday):
+=====================
+1) Mathematical Functions programs (min, max, round, ceil, floor, etc.).
+2) Swap two numbers using temp variable program.
+3) Swap two numbers without using temp variable program.
+4) What is a string pool?
+
+03-07-2026(Friday):
+===================
+1) Difference between string buffer and string builer (theory)?
+2) Program based on string buffer and string builder.
+3) Program based on string methods (10 - 12 methods).
+4) Student mark grade system program using Scanner class.
+5) Employee payroll processing program using Scanner class.
+6) Electricity Bill processing program using Scanner class.
+
+06-07-2026(Monday):
+===================
+1) Get the input from the user using Scanner class and print the length of the string input.
+2) Write a program for login validation using email and password.
+3) Write a program for loan eligibility.
+4) Write a program for student mark grade system.
+5) Write a program for employee processing for the bonus and increment based on position and experience.
+6) Write a program for electricity bill processing.
+
+07-07-2026(Tuesday):
+====================
+1) Calculator program by getting the input as 'operator'.
+2) Write a program number of days in a month using compound switch case.
+3) Write a program for banking transactions (deposit, withdraw, checkBalance).
+4) Write a program for food menu ordering system.
+
+08-07-2026(Wednesday):
+======================
+1) Star pattern program.
+2) Number pattern program.
+3) EB bill processing for 6 months.
+4) Write a program for multiplication table.
+5) Find out given a number is prime number or not a prime number.
+6) Find out given number is a palindrome number or not a palindrome number.
+
+09-07-2026(Thursday):
+=====================
+1) Write a program to print the fibonacci series.
+2) Find the factorial of a given number using do-while and switch case.
+3) Find the sum of the array elements.
+4) Find the largest elements in an array.
+5) Search an element in an array and print the index of that element.
+6) Find the duplicate element in an array.
+7) Count the odd and even elements in an array.
+
+10-07-2026(Friday):
+===================
+1) Student mark grade system program using multi-dimensional(2D) array.
+2) Temperature reading in the hospital for a week using multi-dimensional(2D) array.
+3) Employee salary processing system program using 2D array.
+4) Matrix addition, subtraction and multiplication program.
+5) Find out the areas for different shapes.
+6) ATM transactions using switch case and methods.
+7) House Rent Calculations program using 2D array.
+
+14-07-2026(Tuesday):
+====================
+1) Student data file storage system for create, read, display and delete a file.
+2) Count the number of words in a file.
+3) Count the vowels, consonents, digits and special characters in a file.
+4) Write a program for a custom exception.
+5) Write a program for copying the image.
+
+15-07-2026(Wednesday):
+======================
+1) ATM transaction program.
+   i) AccountHolderName and Balance initializer using constructor.
+   ii) Withdrawal time check the minimum balance condition.
+   iii) Withdrawal or deposit should not happen in the negative number.
+   iv) Write a doTransaction() using switch case.
+2) Employee program.
+   i) Parent class --> Employee  --> id, name, basicSalary (attributes)
+                                 --> display() and calculateSalary()
+   ii) Child classes --> Manager --> display() and calculateSalary() both override
+                     --> Developer --> display() and calculateSalary() both override
+                     --> Intern --> display() and calculateSalary() both override
+3) Online Shopping program.
+   i) Parent class --> Product --> id, name, price
+   ii) Child classes --> Electronics --> extra warranty attribute
+                     --> Clothing --> extra size attribute
+                     --> Food --> extra expiryDate attribute
+4) Car Rental program.
+   i) Rent based on hour
+   ii) Rent based on days
+   iii) Rent based on days + driver need
+5) User authentication program for method overloading concept.
+   i) Email and password based authentication
+   ii) Phone and otp based authentication
+   iii) Social ID based authentication
+
+16-07-2026(Thursday):
+=====================
+1) Cab booking system. (abstract class and interface concepts based) - program
+   i) Interface --> CabBooking --> i) bookRide() ii) calculateFair() based on distance
+   ii) Base class --> Cab --> customerName, distance attributes
+   iii) Derived classes --> MiniCab implements CabBooking
+                        --> AutoCab implements CabBooking
+                        --> SedanCab implements CabBooking
+2) Food Delivery system (similar like Cab Booking System Reference) - program
+3) Hospital Patient Record System using encapsulation concept - program
+   --> attributes --> patient id, patient name, type of disease
+   --> methods --> billAmount()
+4) Difference between abstraction and encapsulation?
+5) What is constructor chaining?
+6) What is object slicing? Does support it or not?
+7) What happen when finally block have a return statement?
+8) Difference between Memory leak and OutOfMemoryError?
+9) Can private method to be overridden?
+10) What is lambda expression? Write a sample program?
+
+17-07-2026(Friday):
+===================
+1) Enum class program practice with implements interface concept.
+2) Enum class program practice without implements interface concept.
+3) Write a simple program for Serialization and Deserialization concept.
+
+20-07-2026(Monday):
+===================
+1) Write a stream programmes.
+2) Write a simple iterator interface program.
+3) Unique methods for ArrayList, Stack, Vector, LinkedList, Queue and Map. (Theory).
+

@@ -19,5 +19,8 @@ target/
 # Text File
 *.txt
 
+# Text File Exclustion
+!Questions.txt
+
 # Serializable File
 *.ser
