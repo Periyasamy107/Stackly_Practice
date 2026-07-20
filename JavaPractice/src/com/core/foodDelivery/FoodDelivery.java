@@ -34,7 +34,6 @@ public class FoodDelivery {
                     System.out.println("Invalid Input");
                 }
             }
-            System.out.println("-------------------------------------------------------------");
         }
         scanner.close();
     }

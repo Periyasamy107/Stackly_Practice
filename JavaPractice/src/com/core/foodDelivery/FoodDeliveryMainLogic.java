@@ -25,6 +25,8 @@ public class FoodDeliveryMainLogic {
                         double distance = helper.distanceGetting(scanner);
                         samyBhavan.bill(quantity, distance, choice);
                         samyBhavan.status();
+                        System.out.println();
+                        samyBhavan.completion();
                     }
                     case 2 -> {
                         CommonShopLogic devaBhavan = new CommonShopLogic(0.15, "Deva Bhavan");
@@ -35,6 +37,8 @@ public class FoodDeliveryMainLogic {
                         double distance = helper.distanceGetting(scanner);
                         devaBhavan.bill(quantity, distance, choice);
                         devaBhavan.status();
+                        System.out.println();
+                        devaBhavan.completion();
                     }
                     default -> {
                         System.out.println();
@@ -55,6 +59,8 @@ public class FoodDeliveryMainLogic {
                         double distance = helper.distanceGetting(scanner);
                         linaVegAndNonVeg.bill(quantity, distance, choice);
                         linaVegAndNonVeg.status();
+                        System.out.println();
+                        linaVegAndNonVeg.completion();
                     }
                     case 2 -> {
                         CommonShopLogic yuvishAllFoods = new CommonShopLogic(0.35, "Yuvish All Foods");
@@ -65,6 +71,8 @@ public class FoodDeliveryMainLogic {
                         double distance = helper.distanceGetting(scanner);
                         yuvishAllFoods.bill(quantity, distance, choice);
                         yuvishAllFoods.status();
+                        System.out.println();
+                        yuvishAllFoods.completion();
                     }
                     default -> {
                         System.out.println();
