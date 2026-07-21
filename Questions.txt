@@ -137,3 +137,7 @@
 2) Write a simple iterator interface program.
 3) Unique methods for ArrayList, Stack, Vector, LinkedList, Queue and Map. (Theory).
 
+21-07-2026(Tuesday):
+====================
+1) Car rental program practice to learn the project in a modular section with ArrayList.
+
