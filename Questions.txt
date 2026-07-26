@@ -141,3 +141,18 @@
 ====================
 1) Car rental program practice to learn the project in a modular section with ArrayList.
 
+22-07-2026 to 23-07-2026(Wednesday to Thursday):
+================================================
+Projects:
+---------
+1) Movie ticket booking system
+2) library management system
+3) Online voting system
+
+24-07-2026(Friday):
+===================
+1) Difference between DBMS and RDBMS?
+2) MySQL commands? (DDL, DML, DCL, TCL)
+3) What are the operators available in MySQL?
+4) What are the datatypes available in MySQL?
+
