@@ -156,3 +156,26 @@ Projects:
 3) What are the operators available in MySQL?
 4) What are the datatypes available in MySQL?
 
+27-07-2026(Monday):
+====================
+1) Create a employee table.
+2) Create a department table.
+3) What is the datatypes in MySQL?
+
+28-07-2026(Tuesday):
+====================
+1) Create a table by using all 6 constraints.
+2) Bulk update by using 'case' statement.
+
+29-07-2026 to 31-07-2026(Wednesday to Friday):
+===============================================
+1) Write a sql commands more than 100+ in varies projects.
+   i) Banking scenario based sql queries.
+   ii) Railway reservation scenario based sql queries.
+   iii) Employee management based sql queries.
+   iv) Customer table based sql queries.
+   v) Order table based sql queries.
+   vi) Student table based sql queries.
+
+
+
