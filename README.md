@@ -1,86 +1,257 @@
-# Java Practice Programs
+# Java & MySQL Questions
 
-## About
+## Questions
 
-This repository contains Java programs created for practice and learning purposes. It is intended to improve understanding of Java concepts through hands-on coding exercises.
+30-06-2026 (Tuesday)
+====================
 
-## Purpose
+1. What is a JIT compiler?
+2. Difference between compiler and interpreter?
+3. What are the two types of main memory?
 
-The main objectives of this repository are:
 
-- Practice core Java concepts
-- Improve problem-solving skills
-- Experiment with Java syntax and features
-- Maintain a collection of practice programs
+01-07-2026 (Wednesday)
+======================
 
-## Topics Covered
+1. Primitive types program.
+2. Operators program.
 
-Some of the topics may include:
 
-- Variables and Data Types
-- Operators
-- Conditional Statements
-- Loops
-- Methods
-- Arrays
-- Strings
-- Object-Oriented Programming (OOP)
-- Exception Handling
-- Collections Framework
-- File Handling
-- Multithreading
-- Java 8 Features (Streams, Lambda Expressions)
-- Miscellaneous Practice Programs
+02-07-2026 (Thursday)
+=====================
 
-## Project Structure
+1. Mathematical Functions programs (min, max, round, ceil, floor, etc.).
+2. Swap two numbers using temp variable program.
+3. Swap two numbers without using temp variable program.
+4. What is a string pool?
 
-```
-Java-Practice/
-├── Basics/
-├── Arrays/
-├── Strings/
-├── OOP/
-├── Collections/
-├── ExceptionHandling/
-├── FileHandling/
-└── ...
-```
 
-## Requirements
+03-07-2026 (Friday)
+===================
 
-- Java JDK 8 or later
-- Any Java IDE (IntelliJ IDEA, Eclipse, VS Code) or terminal
+1. Difference between string buffer and string builer (theory)?
+2. Program based on string buffer and string builder.
+3. Program based on string methods (10 - 12 methods).
+4. Student mark grade system program using Scanner class.
+5. Employee payroll processing program using Scanner class.
+6. Electricity Bill processing program using Scanner class.
 
-## How to Run
 
-1. Clone the repository:
+06-07-2026 (Monday)
+===================
 
-```bash
-git clone https://github.com/your-username/your-repository.git
-```
+1. Get the input from the user using Scanner class and print the length of the string input.
+2. Write a program for login validation using email and password.
+3. Write a program for loan eligibility.
+4. Write a program for student mark grade system.
+5. Write a program for employee processing for the bonus and increment based on position and experience.
+6. Write a program for electricity bill processing.
 
-2. Navigate to the project folder:
 
-```bash
-cd your-repository
-```
+07-07-2026 (Tuesday)
+====================
 
-3. Compile a Java file:
+1. Calculator program by getting the input as 'operator'.
+2. Write a program number of days in a month using compound switch case.
+3. Write a program for banking transactions (deposit, withdraw, checkBalance).
+4. Write a program for food menu ordering system.
 
-```bash
-javac FileName.java
-```
 
-4. Run the program:
+08-07-2026 (Wednesday)
+======================
 
-```bash
-java FileName
-```
+1. Star pattern program.
+2. Number pattern program.
+3. EB bill processing for 6 months.
+4. Write a program for multiplication table.
+5. Find out given a number is prime number or not a prime number.
+6. Find out given number is a palindrome number or not a palindrome number.
 
-## Note
 
-This repository is created **only for Java programming practice**. The programs are written for learning and experimentation and may not represent production-level code.
+09-07-2026 (Thursday)
+=====================
 
-## License
+1. Write a program to print the fibonacci series.
+2. Find the factorial of a given number using do-while and switch case.
+3. Find the sum of the array elements.
+4. Find the largest elements in an array.
+5. Search an element in an array and print the index of that element.
+6. Find the duplicate element in an array.
+7. Count the odd and even elements in an array.
 
-This project is for educational and practice purposes.
+
+10-07-2026 (Friday)
+===================
+
+1. Student mark grade system program using multi-dimensional(2D) array.
+2. Temperature reading in the hospital for a week using multi-dimensional(2D) array.
+3. Employee salary processing system program using 2D array.
+4. Matrix addition, subtraction and multiplication program.
+5. Find out the areas for different shapes.
+6. ATM transactions using switch case and methods.
+7. House Rent Calculations program using 2D array.
+
+
+14-07-2026 (Tuesday)
+====================
+
+1. Student data file storage system for create, read, display and delete a file.
+2. Count the number of words in a file.
+3. Count the vowels, consonents, digits and special characters in a file.
+4. Write a program for a custom exception.
+5. Write a program for copying the image.
+
+
+15-07-2026 (Wednesday)
+======================
+
+1. ATM transaction program.
+    - AccountHolderName and Balance initializer using constructor.
+    - Withdrawal time check the minimum balance condition.
+    - Withdrawal or deposit should not happen in the negative number.
+    - Write a doTransaction() using switch case.
+
+2. Employee program.
+    - Parent class → Employee → id, name, basicSalary (attributes)
+    - display() and calculateSalary()
+    - Child classes → Manager, Developer, Intern
+    - display() and calculateSalary() both override
+
+3. Online Shopping program.
+    - Parent class → Product → id, name, price
+    - Child classes → Electronics, Clothing, Food
+    - Electronics → extra warranty attribute
+    - Clothing → extra size attribute
+    - Food → extra expiryDate attribute
+
+4. Car Rental program.
+    - Rent based on hour
+    - Rent based on days
+    - Rent based on days + driver need
+
+5. User authentication program for method overloading concept.
+    - Email and password based authentication
+    - Phone and otp based authentication
+    - Social ID based authentication
+
+
+16-07-2026 (Thursday)
+=====================
+
+1. Cab booking system. (abstract class and interface concepts based) - program
+    - Interface → CabBooking
+        - bookRide()
+        - calculateFair() based on distance
+    - Base class → Cab
+        - customerName
+        - distance
+    - Derived classes
+        - MiniCab implements CabBooking
+        - AutoCab implements CabBooking
+        - SedanCab implements CabBooking
+
+2. Food Delivery system (similar like Cab Booking System Reference) - program.
+
+3. Hospital Patient Record System using encapsulation concept - program.
+    - Attributes → patient id, patient name, type of disease
+    - Methods → billAmount()
+
+4. Difference between abstraction and encapsulation?
+
+5. What is constructor chaining?
+
+6. What is object slicing? Does support it or not?
+
+7. What happen when finally block have a return statement?
+
+8. Difference between Memory leak and OutOfMemoryError?
+
+9. Can private method to be overridden?
+
+10. What is lambda expression? Write a sample program?
+
+
+17-07-2026 (Friday)
+===================
+
+1. Enum class program practice with implements interface concept.
+2. Enum class program practice without implements interface concept.
+3. Write a simple program for Serialization and Deserialization concept.
+
+
+20-07-2026 (Monday)
+===================
+
+1. Write a stream programmes.
+2. Write a simple iterator interface program.
+3. Unique methods for ArrayList, Stack, Vector, LinkedList, Queue and Map. (Theory).
+
+
+21-07-2026 (Tuesday)
+===================
+
+1. Car rental program practice to learn the project in a modular section with ArrayList.
+
+
+22-07-2026 to 23-07-2026 (Wednesday to Thursday)
+================================================
+
+Projects:
+
+1. Movie ticket booking system
+2. Library management system
+3. Online voting system
+
+
+24-07-2026 (Friday)
+===================
+
+1. Difference between DBMS and RDBMS?
+2. MySQL commands? (DDL, DML, DCL, TCL)
+3. What are the operators available in MySQL?
+4. What are the datatypes available in MySQL?
+
+
+27-07-2026 (Monday)
+====================
+
+1. Create a employee table.
+2. Create a department table.
+3. What is the datatypes in MySQL?
+
+
+28-07-2026 (Tuesday)
+====================
+
+1. Create a table by using all 6 constraints.
+2. Bulk update by using 'case' statement.
+
+
+29-07-2026 to 31-07-2026 (Wednesday to Friday)
+===============================================
+
+1. Write a sql commands more than 90+ in varies projects.
+    - Banking scenario based sql queries.
+    - Railway reservation scenario based sql queries.
+    - Employee management based sql queries.
+    - Customer table based sql queries.
+    - Order table based sql queries.
+    - Student table based sql queries.
+
+
+31-07-2026 (Friday)
+===================
+
+1. Vehicle management sql queries (12 queries).
+
+
+03-08-2026 (Monday)
+===================
+
+1. Types of JDBC Driver?
+2. What is Connection? Why it is used?
+3. What is Statement? Why it is used?
+4. What is PreparedStatement? Why it is used?
+5. What is ResultSet? Why it is used?
+6. Types of SQL injection attacks?
+7. Sample MySQL DB connectivity program? (Just for successfully connected message level).
