@@ -61,8 +61,6 @@ public class ScannerBasedBulkPlusJDBC {
                         bulkInsertEmployees(connection, scanner);
                         break;
                     case 7:
-                        connection.commit();
-                        System.out.println("\nCommit Successfully. All actions saved successfully.");
                         System.out.println("Exiting ...........");
                         break;
                     default:
@@ -72,16 +70,6 @@ public class ScannerBasedBulkPlusJDBC {
             } while(choice != 7);
 
         } catch (SQLException e) {
-            try{
-                if(connection != null) {
-                    connection.rollback();
-                }
-                System.out.println("\nRoll Back Successfully.");
-                System.out.println("No actions saved!!!");
-            } catch (Exception ex) {
-                throw new RuntimeException(ex);
-            }
-
             System.out.println(e.getMessage());
         }
 
@@ -90,36 +78,40 @@ public class ScannerBasedBulkPlusJDBC {
 
 
     public static void addOrCreateEmployee(Connection connection, Scanner scanner) throws SQLException {
+        try {
+            scanner.nextLine();
 
-        scanner.nextLine();
+            String addStudent = "insert into employee1 (ename, esalary, email, edept) values (?,?,?,?)";
 
-        String addStudent = "insert into employee1 (ename, esalary, email, edept) values (?,?,?,?)";
+            PreparedStatement ps = connection.prepareStatement(addStudent);
 
-        PreparedStatement ps = connection.prepareStatement(addStudent);
+            System.out.print("\nEnter your name : ");
+            String name = scanner.nextLine();
 
-        System.out.print("\nEnter your name : ");
-        String name = scanner.nextLine();
+            System.out.print("Enter your salary : ");
+            double salary = scanner.nextDouble();
+            scanner.nextLine();
 
-        System.out.print("Enter your salary : ");
-        double salary = scanner.nextDouble();
-        scanner.nextLine();
+            System.out.print("Enter your email : ");
+            String email = scanner.nextLine();
 
-        System.out.print("Enter your email : ");
-        String email = scanner.nextLine();
+            System.out.print("Enter your department : ");
+            String dept = scanner.nextLine();
 
-        System.out.print("Enter your department : ");
-        String dept = scanner.nextLine();
+            ps.setString(1, name);
+            ps.setDouble(2, salary);
+            ps.setString(3, email);
+            ps.setString(4,dept);
+            ps.executeUpdate();
 
-        ps.setString(1, name);
-        ps.setDouble(2, salary);
-        ps.setString(3, email);
-        ps.setString(4,dept);
-        ps.executeUpdate();
+            connection.commit();
+            System.out.println("\nAdd Employee Success...\n");
 
-        System.out.println("\nAdd Employee Success...\n");
-
-        ps.close();
-
+            ps.close();
+        } catch (SQLException ex) {
+            connection.rollback();
+            System.out.println(ex.getMessage());
+        }
     }
 
 
@@ -149,84 +141,96 @@ public class ScannerBasedBulkPlusJDBC {
     }
 
     public static void updateEmployee (Connection connection, Scanner scanner) throws SQLException{
+        try{
+            scanner.nextLine();
 
-        scanner.nextLine();
+            String sql = "update employee1 set ename = ?, esalary = ?, email = ?, edept = ? where id = ?";
 
-        String sql = "update employee1 set ename = ?, esalary = ?, email = ?, edept = ? where id = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
 
-        PreparedStatement ps = connection.prepareStatement(sql);
+            System.out.print("\nEnter the ID to update : ");
+            int id = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.print("\nEnter the ID to update : ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
+            System.out.print("Enter your name : ");
+            String name = scanner.nextLine();
 
-        System.out.print("Enter your name : ");
-        String name = scanner.nextLine();
+            System.out.print("Enter your salary : ");
+            int salary = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.print("Enter your salary : ");
-        int salary = scanner.nextInt();
-        scanner.nextLine();
+            System.out.print("Enter your email : ");
+            String email = scanner.nextLine();
 
-        System.out.print("Enter your email : ");
-        String email = scanner.nextLine();
+            System.out.print("Enter your department : ");
+            String dept = scanner.nextLine();
 
-        System.out.print("Enter your department : ");
-        String dept = scanner.nextLine();
+            ps.setString(1, name);
+            ps.setDouble(2, salary);
+            ps.setString(3, email);
+            ps.setString(4, dept);
+            ps.setInt(5, id);
 
-        ps.setString(1, name);
-        ps.setDouble(2, salary);
-        ps.setString(3, email);
-        ps.setString(4, dept);
-        ps.setInt(5, id);
+            int row = ps.executeUpdate();
 
-        int row = ps.executeUpdate();
+            if(row > 0) {
+                System.out.println("\nUpdate Employee Success...\n");
+            } else {
+                System.out.println("\nUpdate Employee Fail, Not Found The ID...\n");
+            }
 
-        if(row > 0) {
-            System.out.println("\nUpdate Employee Success...\n");
-        } else {
-            System.out.println("\nUpdate Employee Fail, Not Found The ID...\n");
+            connection.commit();
+            ps.close();
+
+        } catch (SQLException ex) {
+            connection.rollback();
+            System.out.println(ex.getMessage());
         }
-
-        ps.close();
-
     }
 
     public static void deleteEmployee (Connection connection, Scanner scanner) throws SQLException{
-        String selectSql = "select * from employee1 where id = ?";
-        String deleteSql = "delete from employee1 where id = ?";
-        System.out.print("\nEnter the ID to remove : ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
 
-        try (PreparedStatement psDetail = connection.prepareStatement(selectSql)) {
-            psDetail.setInt(1, id);
-            try (ResultSet rs = psDetail.executeQuery();) {
-                if (!rs.next()) {
-                    System.out.println("\nEmployee ID not found.\n");
-                    return;
-                }
-                System.out.println("Employee found : " + rs.getString("ename"));
-            }
-        }
+        try{
+            String selectSql = "select * from employee1 where id = ?";
+            String deleteSql = "delete from employee1 where id = ?";
+            System.out.print("\nEnter the ID to remove : ");
+            int id = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.print("Are you sure you want to delete this record? (yes/no): ");
-        String option = scanner.nextLine().trim();
-
-        if (option.equalsIgnoreCase("yes")) {
-
-            try (PreparedStatement psDelete = connection.prepareStatement(deleteSql)) {
-                psDelete.setInt(1, id);
-
-                int row = psDelete.executeUpdate();
-
-                if (row > 0) {
-                    System.out.println("\nRemoved the Employee Success...\n");
-                } else {
-                    System.out.println("\nRemoval Employee Fail, Not Found The ID...\n");
+            try (PreparedStatement psDetail = connection.prepareStatement(selectSql)) {
+                psDetail.setInt(1, id);
+                try (ResultSet rs = psDetail.executeQuery();) {
+                    if (!rs.next()) {
+                        System.out.println("\nEmployee ID not found.\n");
+                        return;
+                    }
+                    System.out.println("Employee found : " + rs.getString("ename"));
                 }
             }
-        } else {
-            System.out.println("\nDeletion cancelled by the user..\n");
+
+            System.out.print("Are you sure you want to delete this record? (yes/no): ");
+            String option = scanner.nextLine().trim();
+
+            if (option.equalsIgnoreCase("yes")) {
+
+                try (PreparedStatement psDelete = connection.prepareStatement(deleteSql)) {
+                    psDelete.setInt(1, id);
+
+                    int row = psDelete.executeUpdate();
+
+                    if (row > 0) {
+                        System.out.println("\nRemoved the Employee Success...\n");
+                    } else {
+                        System.out.println("\nRemoval Employee Fail, Not Found The ID...\n");
+                    }
+                }
+            } else {
+                System.out.println("\nDeletion cancelled by the user..\n");
+            }
+            connection.commit();
+        } catch (SQLException ex) {
+            connection.rollback();
+            System.out.println(ex.getMessage());
         }
     }
 
@@ -358,42 +362,49 @@ public class ScannerBasedBulkPlusJDBC {
 
 
     public static void bulkInsertEmployees(Connection connection, Scanner scanner) throws SQLException {
-        scanner.nextLine();
-        String insertQuery = "insert into employee1 (ename, esalary, email, edept) values (?,?,?,?)";
-        try (PreparedStatement ps = connection.prepareStatement(insertQuery)) {
-            System.out.print("\nHow many employees do you want to insert : ");
-            int count = scanner.nextInt();
+        try{
             scanner.nextLine();
-
-            for(int i=1; i<=count; i++) {
-                System.out.println("\nEnter details for Employee " + i);
-
-                System.out.print("Enter the name : ");
-                String name = scanner.nextLine();
-
-                System.out.print("Enter the salary : ");
-                double salary = scanner.nextDouble();
+            String insertQuery = "insert into employee1 (ename, esalary, email, edept) values (?,?,?,?)";
+            try (PreparedStatement ps = connection.prepareStatement(insertQuery)) {
+                System.out.print("\nHow many employees do you want to insert : ");
+                int count = scanner.nextInt();
                 scanner.nextLine();
 
-                System.out.print("Enter the email : ");
-                String email = scanner.nextLine();
+                for(int i=1; i<=count; i++) {
+                    System.out.println("\nEnter details for Employee " + i);
 
-                System.out.print("Enter the department : ");
-                String department = scanner.nextLine();
+                    System.out.print("Enter the name : ");
+                    String name = scanner.nextLine();
 
-                ps.setString(1, name);
-                ps.setDouble(2, salary);
-                ps.setString(3, email);
-                ps.setString(4, department);
+                    System.out.print("Enter the salary : ");
+                    double salary = scanner.nextDouble();
+                    scanner.nextLine();
 
-                ps.addBatch();
+                    System.out.print("Enter the email : ");
+                    String email = scanner.nextLine();
+
+                    System.out.print("Enter the department : ");
+                    String department = scanner.nextLine();
+
+                    ps.setString(1, name);
+                    ps.setDouble(2, salary);
+                    ps.setString(3, email);
+                    ps.setString(4, department);
+
+                    ps.addBatch();
+                }
+
+                int[] results = ps.executeBatch();
+
+                connection.commit();
+
+                System.out.println("\nBulk Insert Completed Successfully.");
+                System.out.println("Employees Processed : " + results.length + "\n");
+
             }
-
-            int[] results = ps.executeBatch();
-
-            System.out.println("\nBulk Insert Completed Successfully.");
-            System.out.println("Employees Processed : " + results.length + "\n");
-
+        } catch (SQLException ex) {
+            connection.rollback();
+            System.out.println(ex.getMessage());
         }
     }
 
