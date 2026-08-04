@@ -255,3 +255,12 @@ Projects:
 5. What is ResultSet? Why it is used?
 6. Types of SQL injection attacks?
 7. Sample MySQL DB connectivity program? (Just for successfully connected message level).
+
+
+04-08-2026 (Tuesday)
+====================
+
+1. Simple JDBC connectivity program.
+2. Simple 'Transaction' based program.
+3. Scanner class used JDBC program.
+

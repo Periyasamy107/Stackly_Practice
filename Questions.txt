@@ -213,6 +213,13 @@ Projects:
 7) Sample MySQL db connectivity program? (just for successfully connected message level).
 
 
+04-08-2026 (Tuesday)
+====================
+1. Simple JDBC connectivity program.
+2. Simple 'Transaction' based program.
+3. Scanner class used JDBC program.
+
+
 
 
 
