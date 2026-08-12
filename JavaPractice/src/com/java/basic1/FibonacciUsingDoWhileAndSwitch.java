@@ -9,7 +9,7 @@ public class FibonacciUsingDoWhileAndSwitch {
         boolean keepRunning = true;
 
         do {
-            System.out.println("\n ----- Main Menu -----");
+            System.out.println("\n ----- xmlObjCreation Menu -----");
             System.out.println("1. Run Fibonacci Generator");
             System.out.println("2. Quit Program");
             System.out.print("Choose an option 1 or 2 : ");

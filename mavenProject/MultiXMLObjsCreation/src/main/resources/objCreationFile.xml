@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="employee1" class="multi.obj.xml.Employee">
+        <property name="id" value="100"></property>
+        <property name="name" value="Samuel"></property>
+        <property name="salary" value="25000.00"></property>
+        <property name="experience" value="2"></property>
+    </bean>
+
+    <bean id="employee2" class="multi.obj.xml.Employee">
+        <property name="id" value="101"></property>
+        <property name="name" value="Lina"></property>
+        <property name="salary" value="33000.00"></property>
+        <property name="experience" value="4"></property>
+    </bean>
+
+</beans>
