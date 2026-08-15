@@ -8,8 +8,8 @@
 
     <bean id="student" class="com.student.Student">
         <property name="name" value="Sam"></property>
-        <property name="marks" value="19"></property>
-        <property name="results" value="#{19>35 ? 'Pass' : 'Fail'}"></property>
+        <property name="marks" value="79"></property>
+        <property name="results" value="#{79>35 ? 'Pass' : 'Fail'}"></property>
     </bean>
 
 </beans>

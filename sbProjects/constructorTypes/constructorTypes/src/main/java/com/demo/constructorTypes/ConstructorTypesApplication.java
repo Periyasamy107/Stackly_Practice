@@ -23,8 +23,10 @@ public class ConstructorTypesApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        System.out.println();
         car.drive();
         computer.printing();
+        System.out.println();
     }
 }
 
@@ -48,8 +50,10 @@ public class ConstructorTypesApplication implements CommandLineRunner {
 //
 //    @PostConstruct
 //    public void display() {
+//        System.out.println();
 //        car.drive();
 //        computer.printing();
+//        System.out.println();
 //    }
 //
 //}

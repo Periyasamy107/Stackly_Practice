@@ -27,13 +27,15 @@ public class Employee {
 
     @PostConstruct
     public void display() {
-        System.out.println("Employee{" +
-                "empId=" + empId +
-                ", name='" + name + '\'' +
-                ", depName='" + depName + '\'' +
-                ", depId=" + depId +
-                ", salary=" + salary +
-                ", userName='" + userName + '\'' +
-                '}');
+        System.out.println();
+        System.out.println("Employee : ");
+        System.out.println("=============================");
+        System.out.println("Employee ID : " + empId);
+        System.out.println("Employee Name : " + name);
+        System.out.println("Department Name : " + depName);
+        System.out.println("Department ID : " + depId);
+        System.out.println("Employee Salary : " + salary);
+        System.out.println("System User Name : " + userName);
+        System.out.println();
     }
 }

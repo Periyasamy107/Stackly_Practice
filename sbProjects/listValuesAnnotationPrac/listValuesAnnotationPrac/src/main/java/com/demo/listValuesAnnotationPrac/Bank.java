@@ -11,7 +11,8 @@ public class Bank {
     @Value("Sam Bank")
     private String bankName;
 
-    @Value("#{{'Current Account', 'Savings Account', 'Fixed Deposit', 'Recurring Deposit', 'NRI Account', 'Demat Account'}}")
+    @Value("#{{'Current Account', 'Savings Account', 'Fixed Deposit', " +
+            "'Recurring Deposit', 'NRI Account', 'Demat Account'}}")
     private List<String> accountTypes;
 
     @Value("Chennai")
