@@ -308,4 +308,11 @@ Projects:
 1. Aspect Oriented Programming (AOP) programmes.
 
 
-
+19-08-2026 (Wednesday)
+======================
+1. What is MVC pattern?
+2. What is Spring MVC pattern?
+3. Sample hello world web application.
+4. What is RequestParam?
+5. What is PathVariable?
+6. What is RequestBody?
