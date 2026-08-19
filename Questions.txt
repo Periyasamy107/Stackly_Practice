@@ -220,6 +220,50 @@ Projects:
 3. Scanner class used JDBC program.
 
 
+05-08-2026 to 07-08-2026 (Wednesday to Friday)
+==============================================
+1. Complaint Management System Project Using JDBC concepts.
+2. Employee Leave Management System Project Using JDBC concepts.
+3. Hotel Room Booking System Project Using JDBC concepts.
+4. Employee Payroll Processing System Project Using JDBC concepts.
+
+
+10-08-2026 (Monday)
+===================
+1. What is framework?
+2. What is an API?
+3. Types of Java framework?
+4. What is Spring framework?
+
+
+11-08-2026 (Tuesday)
+====================
+1. Object creation using xml file based configuration.
+
+
+12-08-2026 (Wednesday)
+======================
+1. Object creation using annotation.
+2. Annotations practiced (@Primary, @Qualifier, @Scope, @PostConstruct)
+
+
+13-08-2026 (Thursday)
+=====================
+1. Spring Expression Language (SpEL).
+2. @Value annotation.
+
+
+14-08-2026 (Friday)
+===================
+1. Lombok plugin installation and sample project.
+
+
+18-08-2026 (Tuesday)
+====================
+1. Aspect Oriented Programming (AOP) programmes.
+
+
+
 
 
 
