@@ -316,3 +316,10 @@ Projects:
 4. What is RequestParam?
 5. What is PathVariable?
 6. What is RequestBody?
+
+
+20-08-2026 (Thursday)
+=====================
+1. @PathVariable and @RequestParam annotation practiced using simple program.
+2. Validation part added in model class (@NotNull, @NotBlank, @Min)
+3. Student web application started for READ and CREATE operations.
