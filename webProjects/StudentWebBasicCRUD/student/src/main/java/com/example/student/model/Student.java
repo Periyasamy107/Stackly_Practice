@@ -16,10 +16,10 @@ import lombok.ToString;
 public class Student {
 
     @NotNull(message = "id field cannot be null")
-    @NotBlank(message = "id field cannot be blank")
-    private int studentId;
+    private Integer studentId;
 
     @NotBlank(message = "name field cannot be blank")
+    @NotNull(message = "name field cannot be null")
     private String studentName;
 
     @NotBlank(message = "course field cannot be blank")
