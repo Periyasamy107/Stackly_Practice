@@ -323,3 +323,10 @@ Projects:
 1. @PathVariable and @RequestParam annotation practiced using simple program.
 2. Validation part added in model class (@NotNull, @NotBlank, @Min)
 3. Student web application started for READ and CREATE operations.
+
+
+21-08-2026 to 23-08-2026 (Friday to Sunday)
+===========================================
+1. Product Inventory System Project (Validation && Global Exception Handler)
+2. Hospital Appointment System Project (Validation && Global Exception Handler)
+3. Movie Ticket Booking System Project (Validation && Global Exception Handler)
