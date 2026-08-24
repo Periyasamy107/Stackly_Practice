@@ -330,3 +330,10 @@ Projects:
 1. Product Inventory System Project (Validation && Global Exception Handler)
 2. Hospital Appointment System Project (Validation && Global Exception Handler)
 3. Movie Ticket Booking System Project (Validation && Global Exception Handler)
+
+
+24-08-2026 (Monday)
+===================
+1. What is ORM?
+2. Types of ORM in java language related?
+3. ORM related annotations @Entity, @Id, @GeneratedValue, @Table
