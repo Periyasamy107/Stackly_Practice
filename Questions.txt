@@ -293,3 +293,11 @@ Projects:
 2. Types of ORM in java language related?
 3. ORM related annotations @Entity, @Id, @GeneratedValue, @Table
 
+
+25-08-2026 (Tuesday)
+====================
+1. Added repository and service layer for the Monday project.
+2. Assign one project which includes entity, dto (Field Validation), repository (min 5 queris)
+   service interface, service impl (validation for add, update, delete), controller
+   exception (GlobalExceptionHandler, Constants, UserDefinedExceptions)
+
