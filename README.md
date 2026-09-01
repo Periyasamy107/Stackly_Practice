@@ -345,3 +345,26 @@ Projects:
 2. Assign one project which includes entity, dto (Field Validation), repository (min 5 queris)
    service interface, service impl (validation for add, update, delete), controller
    exception (GlobalExceptionHandler, Constants, UserDefinedExceptions)
+
+
+26-08-2026 (Wednesday)
+======================
+1. Introduced DTO package
+2. Validation also included in DTO package
+
+
+31-08-2026 (Monday)
+===================
+1. Introduced RequestDTO, ResponseDTO, LoginRequestDTO, LoginResponseDTO
+2. Introduced Mapper types (normal, custom, MapStruct)
+3. Introduced @Transactional annotation
+
+
+01-09-2026 (Tuesday)
+====================
+1. Auditing in two different ways (@EnableJpaAuditing, @EntityListeners, @CreatedDate, @CreatedBy, @LastModifiedDate, @LastModifiedBy, @MappedSuperclass)
+    i) Introduce in the main class
+    ii) Introduce in the config class
+2. Introduce Versioning by using @Version annotation
+3. Paging and Sorting endpoints.
+
