@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{product/fragments/header :: head(${pageTitle})}">
+</head>
+
+<body>
+
+<div th:replace="~{product/fragments/navbar :: navbar}"></div>
+
+<main class="page-container">
+
+    <div th:replace="~{product/fragments/alerts :: alerts}"></div>
+
+
+    <!-- Header -->
+
+    <div class="page-header">
+
+        <div>
+
+            <div class="breadcrumb">
+
+                <a th:href="@{/products}">
+                    Products
+                </a>
+
+                <span>/</span>
+
+                <a th:href="@{/products/{id}(id=${productId})}"
+                   th:text="${'Product #' + productId}">
+                    Product
+                </a>
+
+                <span>/</span>
+
+                <span>Edit</span>
+
+            </div>
+
+            <h1>
+                Edit Product
+            </h1>
+
+            <p>
+                Update the product information below.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Form -->
+
+    <div class="form-card card">
+
+        <div class="form-card-header">
+
+            <div class="form-icon edit-icon">
+                ✎
+            </div>
+
+            <div>
+
+                <h2>
+                    Update Product
+                </h2>
+
+                <p>
+                    Product ID:
+                    <strong th:text="${productId}">
+                        1
+                    </strong>
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <form th:action="@{/products/{id}(id=${productId})}"
+              th:object="${product}"
+              method="post"
+              class="product-form">
+
+
+            <!-- Name -->
+
+            <div class="form-group">
+
+                <label for="name">
+                    Product Name
+                    <span class="required">*</span>
+                </label>
+
+                <input id="name"
+                       type="text"
+                       th:field="*{name}"
+                       placeholder="Enter product name"
+                       maxlength="100"
+                       th:classappend="${#fields.hasErrors('name')}
+                                       ? ' input-error'">
+
+                <div th:if="${#fields.hasErrors('name')}"
+                     class="field-error"
+                     th:errors="*{name}">
+                    Product name error
+                </div>
+
+            </div>
+
+
+            <!-- Description -->
+
+            <div class="form-group">
+
+                <label for="description">
+                    Description
+                </label>
+
+                <textarea id="description"
+                          th:field="*{description}"
+                          placeholder="Enter product description"
+                          maxlength="1000"
+                          rows="5"
+                          th:classappend="${#fields.hasErrors('description')}
+                                          ? ' input-error'"></textarea>
+
+                <div th:if="${#fields.hasErrors('description')}"
+                     class="field-error"
+                     th:errors="*{description}">
+                    Description error
+                </div>
+
+            </div>
+
+
+            <!-- Price + Category -->
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="price">
+                        Price
+                        <span class="required">*</span>
+                    </label>
+
+                    <div class="input-prefix">
+
+                        <span>
+                            ₹
+                        </span>
+
+                        <input id="price"
+                               type="number"
+                               step="0.01"
+                               min="0.01"
+                               th:field="*{price}"
+                               placeholder="0.00"
+                               th:classappend="${#fields.hasErrors('price')}
+                                               ? ' input-error'">
+
+                    </div>
+
+                    <div th:if="${#fields.hasErrors('price')}"
+                         class="field-error"
+                         th:errors="*{price}">
+                        Price error
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="category">
+                        Category
+                        <span class="required">*</span>
+                    </label>
+
+                    <select id="category"
+                            th:field="*{category}"
+                            th:classappend="${#fields.hasErrors('category')}
+                                            ? ' input-error'">
+
+                        <option value="">
+                            Select category
+                        </option>
+
+                        <option th:each="category : ${categories}"
+                                th:value="${category}"
+                                th:text="${category}">
+                            ELECTRONICS
+                        </option>
+
+                    </select>
+
+                    <div th:if="${#fields.hasErrors('category')}"
+                         class="field-error"
+                         th:errors="*{category}">
+                        Category error
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Active -->
+
+            <div class="form-group">
+
+                <label>
+                    Product Status
+                </label>
+
+                <label class="toggle-wrapper">
+
+                    <input type="checkbox"
+                           th:field="*{active}">
+
+                    <span class="toggle-slider"></span>
+
+                    <span class="toggle-label">
+                        Active Product
+                    </span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Actions -->
+
+            <div class="form-actions">
+
+                <a th:href="@{/products/{id}(id=${productId})}"
+                   class="btn btn-secondary">
+                    Cancel
+                </a>
+
+                <button type="submit"
+                        class="btn btn-primary">
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+<div th:replace="~{product/fragments/footer :: footer}"></div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<nav th:fragment="navbar"
+     class="navbar" xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <div class="navbar-container">
+
+        <!-- Brand -->
+        <a th:href="@{/products}"
+           class="brand">
+
+            <div class="brand-icon">
+                P
+            </div>
+
+            <div class="brand-text">
+                <span class="brand-title">Product</span>
+                <span class="brand-subtitle">Management</span>
+            </div>
+
+        </a>
+
+
+        <!-- Navigation -->
+        <div class="nav-links">
+
+            <a th:href="@{/products}"
+               class="nav-link">
+
+                <span>Products</span>
+
+            </a>
+
+            <a th:href="@{/products/active}"
+               class="nav-link">
+
+                <span>Active</span>
+
+            </a>
+
+            <a th:href="@{/products/create}"
+               class="nav-link nav-create">
+
+                <span>+</span>
+                <span>Add Product</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+:::

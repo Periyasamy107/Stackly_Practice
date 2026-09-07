@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{product/fragments/header :: head(${pageTitle})}">
+</head>
+
+<body>
+
+<div th:replace="~{product/fragments/navbar :: navbar}"></div>
+
+<main class="page-container">
+
+    <div th:replace="~{product/fragments/alerts :: alerts}"></div>
+
+
+    <div class="page-header">
+
+        <div>
+
+            <div class="breadcrumb">
+
+                <a th:href="@{/products}">
+                    Products
+                </a>
+
+                <span>/</span>
+
+                <span>Search</span>
+
+            </div>
+
+            <h1>
+                Search Products
+            </h1>
+
+            <p>
+                Search active products by name.
+            </p>
+
+        </div>
+
+        <div class="header-actions">
+
+            <a th:href="@{/products/create}"
+               class="btn btn-primary">
+                + Add Product
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Search -->
+
+    <div class="search-box card">
+
+        <form th:action="@{/products/search}"
+              method="get"
+              class="search-panel">
+
+            <div class="search-wrapper">
+
+            <span class="search-icon">
+                🔍
+            </span>
+
+                <input type="search"
+                       name="name"
+                       th:value="${name}"
+                       placeholder="Search product name..."
+                       required>
+
+            </div>
+
+            <input type="hidden"
+                   name="page"
+                   value="0">
+
+            <input type="hidden"
+                   name="size"
+                   th:value="${size != null ? size : 5}">
+
+            <button type="submit"
+                    class="btn btn-primary">
+
+                Search
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- Results -->
+
+    <div class="card"
+         th:if="${products != null}">
+
+        <div class="card-header">
+
+            <div>
+
+                <strong>
+                    Search Results
+                </strong>
+
+                <span class="result-count"
+                      th:if="${name != null}"
+                      th:text="${' for &quot;' + name + '&quot;'}">
+                    for "phone"
+                </span>
+
+            </div>
+
+            <span class="result-count"
+                  th:text="${products.totalElements + ' products found'}">
+                10 products found
+            </span>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table class="product-table">
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Product</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+
+                </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                <tr th:each="product : ${products.content}">
+
+                    <td th:text="${product.id}">
+                        1
+                    </td>
+
+
+                    <td>
+
+                        <a th:href="@{/products/{id}(id=${product.id})}"
+                           class="product-name"
+                           th:text="${product.name}">
+                            Product
+                        </a>
+
+                    </td>
+
+
+                    <td>
+
+                        <div class="product-description"
+                             th:text="${product.description != null
+                                       ? product.description
+                                       : 'No description'}">
+                            Description
+                        </div>
+
+                    </td>
+
+
+                    <td>
+
+                        <span class="product-price"
+                              th:text="${'₹ ' + product.price}">
+                            ₹ 999.00
+                        </span>
+
+                    </td>
+
+
+                    <td>
+
+                        <span class="category-badge"
+                              th:text="${product.category}">
+                            ELECTRONICS
+                        </span>
+
+                    </td>
+
+
+                    <td>
+                        <span class="status-badge"
+                              th:classappend="${product.active} ? ' status-active' : ' status-inactive'"
+                              th:text="${product.active} ? 'Active' : 'Inactive'">
+                            Active
+                        </span>
+                    </td>
+
+
+
+                    <td>
+
+                        <div class="action-buttons">
+
+                            <a th:href="@{/products/{id}(id=${product.id})}"
+                               class="action-btn"
+                               title="View">
+                                👁
+                            </a>
+
+                            <a th:href="@{/products/{id}/edit(id=${product.id})}"
+                               class="action-btn"
+                               title="Edit">
+                                ✎
+                            </a>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+
+                <tr th:if="${products.empty}">
+
+                    <td colspan="7">
+
+                        <div class="empty-state">
+
+                            <div class="empty-icon">
+                                🔍
+                            </div>
+
+                            <h3>
+                                No Products Found
+                            </h3>
+
+                            <p>
+                                No active products matched your search.
+                            </p>
+
+                            <a th:href="@{/products}"
+                               class="btn btn-secondary">
+                                View All Products
+                            </a>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div th:replace="~{product/fragments/pagination ::
+            pagination(
+                ${products},
+                '/products/search',
+                ${searchName},
+                null,
+                null,
+                null,
+                null,
+                null
+            )
+        }">
+        </div>
+
+
+    </div>
+
+
+    <!-- Initial State -->
+
+    <div class="card"
+         th:if="${products == null}">
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                🔍
+            </div>
+
+            <h3>
+                Search Products
+            </h3>
+
+            <p>
+                Enter a product name above to start searching.
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+<div th:replace="~{product/fragments/footer :: footer}"></div>
+
+</body>
+</html>

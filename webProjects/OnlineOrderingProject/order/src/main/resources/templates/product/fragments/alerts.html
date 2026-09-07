@@ -1,0 +1,53 @@
+<div th:fragment="alerts" xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <!-- Success -->
+    <div th:if="${successMessage}"
+         class="alert alert-success"
+         role="alert">
+
+        <div class="alert-icon">
+            ✓
+        </div>
+
+        <div class="alert-content">
+            <strong>Success</strong>
+            <span th:text="${successMessage}">
+                Operation completed successfully.
+            </span>
+        </div>
+
+        <button type="button"
+                class="alert-close"
+                onclick="this.parentElement.remove()">
+            ×
+        </button>
+
+    </div>
+
+
+    <!-- Error -->
+    <div th:if="${errorMessage}"
+         class="alert alert-error"
+         role="alert">
+
+        <div class="alert-icon">
+            !
+        </div>
+
+        <div class="alert-content">
+            <strong>Error</strong>
+            <span th:text="${errorMessage}">
+                Something went wrong.
+            </span>
+        </div>
+
+        <button type="button"
+                class="alert-close"
+                onclick="this.parentElement.remove()">
+            ×
+        </button>
+
+    </div>
+
+</div>
+:::

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<nav th:fragment="pagination(
+        page,
+        baseUrl,
+        name,
+        category,
+        minPrice,
+        maxPrice,
+        sortBy,
+        direction
+     )"
+     class="pagination-container"
+     th:if="${page != null and page.totalPages > 0}"
+     aria-label="Product pagination">
+
+
+    <!-- =====================================================
+         RESULT INFORMATION
+         ===================================================== -->
+
+    <div class="pagination-info">
+
+        Showing
+
+        <strong
+                th:text="${page.numberOfElements > 0
+                ? page.number * page.size + 1
+                : 0}">
+            1
+        </strong>
+
+        -
+
+        <strong
+                th:text="${page.number * page.size + page.numberOfElements}">
+            5
+        </strong>
+
+        of
+
+        <strong th:text="${page.totalElements}">
+            20
+        </strong>
+
+        products
+
+    </div>
+
+
+    <!-- =====================================================
+         PAGINATION CONTROLS
+         ===================================================== -->
+
+    <div class="pagination-controls">
+
+
+        <!-- FIRST -->
+
+        <a th:href="@{${baseUrl}(
+                page=0,
+                size=${page.size},
+                name=${name},
+                category=${category},
+                minPrice=${minPrice},
+                maxPrice=${maxPrice},
+                sortBy=${sortBy},
+                direction=${direction}
+            )}"
+           class="pagination-btn"
+           th:classappend="${page.first ? ' disabled' : ''}"
+           aria-label="First page">
+
+            «
+
+        </a>
+
+
+        <!-- PREVIOUS -->
+
+        <a th:href="@{${baseUrl}(
+                page=${page.number - 1},
+                size=${page.size},
+                name=${name},
+                category=${category},
+                minPrice=${minPrice},
+                maxPrice=${maxPrice},
+                sortBy=${sortBy},
+                direction=${direction}
+            )}"
+           class="pagination-btn"
+           th:classappend="${page.first ? ' disabled' : ''}"
+           aria-label="Previous page">
+
+            ‹
+
+        </a>
+
+
+        <!-- =================================================
+             PAGE NUMBERS
+             ================================================= -->
+
+        <th:block
+                th:with="
+                startPage=${T(java.lang.Math).max(0, page.number - 2)},
+                endPage=${T(java.lang.Math).min(page.totalPages - 1, page.number + 2)}
+            ">
+
+            <th:block
+                    th:each="pageNumber : ${#numbers.sequence(startPage, endPage)}">
+
+                <a th:href="@{${baseUrl}(
+                        page=${pageNumber},
+                        size=${page.size},
+                        name=${name},
+                        category=${category},
+                        minPrice=${minPrice},
+                        maxPrice=${maxPrice},
+                        sortBy=${sortBy},
+                        direction=${direction}
+                    )}"
+                   class="pagination-btn page-number"
+                   th:classappend="${pageNumber == page.number
+                                    ? ' active'
+                                    : ''}"
+                   th:text="${pageNumber + 1}">
+
+                    1
+
+                </a>
+
+            </th:block>
+
+        </th:block>
+
+
+        <!-- NEXT -->
+
+        <a th:href="@{${baseUrl}(
+                page=${page.number + 1},
+                size=${page.size},
+                name=${name},
+                category=${category},
+                minPrice=${minPrice},
+                maxPrice=${maxPrice},
+                sortBy=${sortBy},
+                direction=${direction}
+            )}"
+           class="pagination-btn"
+           th:classappend="${page.last ? ' disabled' : ''}"
+           aria-label="Next page">
+
+            ›
+
+        </a>
+
+
+        <!-- LAST -->
+
+        <a th:href="@{${baseUrl}(
+                page=${page.totalPages - 1},
+                size=${page.size},
+                name=${name},
+                category=${category},
+                minPrice=${minPrice},
+                maxPrice=${maxPrice},
+                sortBy=${sortBy},
+                direction=${direction}
+            )}"
+           class="pagination-btn"
+           th:classappend="${page.last ? ' disabled' : ''}"
+           aria-label="Last page">
+
+            »
+
+        </a>
+
+    </div>
+
+</nav>
+
+</body>
+</html>

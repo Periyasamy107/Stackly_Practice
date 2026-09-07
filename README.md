@@ -368,3 +368,26 @@ Projects:
 2. Introduce Versioning by using @Version annotation
 3. Paging and Sorting endpoints.
 
+
+02-09-2026 (Wednesday)
+======================
+1. Swagger (Open API)
+2. Logger (Log4j, Slf4j)
+3. Customized queries (JPQL, Native Query, Named Query)
+
+
+03-09-2026 (Thursday)
+=====================
+1. HikariCP Connection Pool.
+2. Scheduler for spring boot project.
+3. Actuator for production ready features like health,metrics,etc.
+
+
+07-09-2026 (Monday)
+===================
+1. Spring profiles.
+2. Properties configuration in yaml file format instead of properties file format.
+3. Create and update in a single endpoint using @PostMapping.
+4. In mapper class having @Mapping ans @MappingTarget annotations.
+
+

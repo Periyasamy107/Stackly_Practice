@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{product/fragments/header :: head(${pageTitle})}">
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+     ===================================================== -->
+
+<div th:replace="~{product/fragments/navbar :: navbar}">
+</div>
+
+
+<!-- =====================================================
+     MAIN
+     ===================================================== -->
+
+<main class="page-container">
+
+
+    <!-- Alerts -->
+
+    <div th:replace="~{product/fragments/alerts :: alerts}">
+    </div>
+
+
+    <!-- Page Header -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                Products
+            </h1>
+
+            <p>
+                Manage and view all products in your catalog.
+            </p>
+
+        </div>
+
+
+        <div class="header-actions">
+
+            <a th:href="@{/products/create}"
+               class="btn btn-primary">
+
+                <span>+</span>
+
+                <span>
+                    Add Product
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         SEARCH
+         ================================================= -->
+
+    <form th:action="@{/products/search}"
+          method="get"
+          class="search-panel">
+
+        <div class="search-wrapper">
+
+            <span class="search-icon">
+                🔍
+            </span>
+
+            <input type="text"
+                   name="name"
+                   placeholder="Search products by name..."
+                   required>
+
+        </div>
+
+        <button type="submit"
+                class="btn btn-primary">
+
+            Search
+
+        </button>
+
+    </form>
+
+
+    <!-- =================================================
+         PRODUCT TABLE
+         ================================================= -->
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <strong>
+                All Products
+            </strong>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table class="product-table">
+
+                <thead>
+
+                <tr>
+
+                    <th>
+                        ID
+                    </th>
+
+                    <th>
+                        Product
+                    </th>
+
+                    <th>
+                        Description
+                    </th>
+
+                    <th>
+                        Price
+                    </th>
+
+                    <th>
+                        Category
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                    <th>
+                        Actions
+                    </th>
+
+                </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                <!-- Products -->
+
+                <tr th:each="product : ${products}">
+
+                    <td th:text="${product.id}">
+                        1
+                    </td>
+
+
+                    <td>
+
+                        <a th:href="@{/products/{id}(id=${product.id})}"
+                           class="product-name"
+                           th:text="${product.name}">
+
+                            Product Name
+
+                        </a>
+
+                    </td>
+
+
+                    <td>
+
+                        <div class="product-description"
+                             th:text="${product.description != null ? product.description : 'No description'}">
+
+                            Product description
+
+                        </div>
+
+                    </td>
+
+
+                    <td>
+
+                        <span class="product-price"
+                              th:text="${'₹ ' + product.price}">
+
+                            ₹ 999.00
+
+                        </span>
+
+                    </td>
+
+
+                    <td>
+
+                        <span class="category-badge"
+                              th:text="${product.category}">
+
+                            ELECTRONICS
+
+                        </span>
+
+                    </td>
+
+
+                    <td>
+
+                        <span th:if="${product.active}"
+                              class="status-badge status-active">
+
+                            Active
+
+                        </span>
+
+                        <span th:unless="${product.active}"
+                              class="status-badge status-inactive">
+
+                            Inactive
+
+                        </span>
+
+                    </td>
+
+
+                    <td>
+
+                        <div class="action-buttons">
+
+                            <!-- View -->
+
+                            <a th:href="@{/products/{id}(id=${product.id})}"
+                               class="action-btn"
+                               title="View">
+
+                                👁
+
+                            </a>
+
+
+                            <!-- Edit -->
+
+                            <a th:href="@{/products/{id}/edit(id=${product.id})}"
+                               class="action-btn"
+                               title="Edit">
+
+                                ✎
+
+                            </a>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+
+                <!-- Empty -->
+
+                <tr th:if="${#lists.isEmpty(products)}">
+
+                    <td colspan="7">
+
+                        <div class="empty-state">
+
+                            <div class="empty-icon">
+                                📦
+                            </div>
+
+                            <h3>
+                                No Products Found
+                            </h3>
+
+                            <p>
+                                Your product catalog is currently empty.
+                            </p>
+
+                            <a th:href="@{/products/create}"
+                               class="btn btn-primary">
+
+                                Add Your First Product
+
+                            </a>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<div th:replace="~{product/fragments/footer :: footer}">
+</div>
+
+
+</body>
+</html>
