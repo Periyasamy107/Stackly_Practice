@@ -391,3 +391,10 @@ Projects:
 4. In mapper class having @Mapping ans @MappingTarget annotations.
 
 
+08-09-2026 (Tuesday)
+====================
+1. Enumerated with enum class.
+2. File upload and download.
+3. ORM relationship theory.
+
+
