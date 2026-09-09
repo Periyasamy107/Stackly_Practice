@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>File Management</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .upload-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .upload-box input[type="file"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .file-list {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fill, minmax(320px, 1fr));
+
+            gap: 20px;
+        }
+
+        .file-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .file-card h3 {
+            word-break: break-word;
+            color: #333;
+        }
+
+        .file-info {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .preview-image {
+            width: 100%;
+            max-height: 250px;
+            object-fit: contain;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        audio {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        video {
+            width: 100%;
+            max-height: 250px;
+            margin-bottom: 15px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .download {
+            background-color: #28a745;
+        }
+
+        .download:hover {
+            background-color: #1e7e34;
+        }
+
+        .delete {
+            background-color: #dc3545;
+        }
+
+        .delete:hover {
+            background-color: #bd2130;
+        }
+
+        .text-preview {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            white-space: pre-wrap;
+            word-break: break-word;
+            max-height: 250px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>File Management System</h1>
+
+    <!-- ===================================== -->
+    <!-- ERROR MESSAGE -->
+    <!-- ===================================== -->
+
+    <div
+            th:if="${errorMessage}"
+            style="
+            background-color: #f8d7da;
+            color: #842029;
+            border: 1px solid #f5c2c7;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        ">
+
+        <strong>Error:</strong>
+
+        <span th:text="${errorMessage}">
+        File format is not supported.
+    </span>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- UPLOAD -->
+    <!-- ===================================== -->
+
+    <div class="upload-box">
+
+        <h2>Upload File</h2>
+
+        <p style="color: #666;">
+            Supported file formats:
+            <strong>
+                TXT, PDF, DOC, DOCX, XLS, XLSX,
+                PNG, JPG, JPEG, MP3, WAV, MP4, WEBM
+            </strong>
+        </p>
+
+
+        <form
+                th:action="@{/files/upload}"
+                method="post"
+                enctype="multipart/form-data">
+
+            <input
+                    type="file"
+                    name="uploadingFiles"
+                    required>
+
+            <button type="submit">
+                Upload
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- ===================================== -->
+    <!-- FILE LIST -->
+    <!-- ===================================== -->
+
+    <div class="file-list">
+
+        <div
+                class="file-card"
+                th:each="file : ${files}">
+
+            <h3
+                    th:text="${file.fileName}">
+                filename
+            </h3>
+
+
+            <div class="file-info">
+
+                <p>
+                    Type:
+                    <span
+                            th:text="${file.fileType}">
+                    </span>
+                </p>
+
+                <p>
+                    Size:
+                    <span
+                            th:text="${file.fileSize}">
+                    </span>
+                    bytes
+                </p>
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- IMAGE -->
+            <!-- ================================= -->
+
+            <div
+                    th:if="${file.fileType != null
+                    and file.fileType.startsWith('image/')}">
+
+                <img
+                        class="preview-image"
+                        th:src="@{'/files/view/' + ${file.id}}"
+                        th:alt="${file.fileName}">
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- AUDIO -->
+            <!-- ================================= -->
+
+            <div
+                    th:if="${file.fileType != null
+                    and file.fileType.startsWith('audio/')}">
+
+                <audio controls>
+
+                    <source
+                            th:src="@{'/files/view/' + ${file.id}}"
+                            th:type="${file.fileType}">
+
+                    Your browser does not support audio playback.
+
+                </audio>
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- VIDEO -->
+            <!-- ================================= -->
+
+            <div
+                    th:if="${file.fileType != null
+                    and file.fileType.startsWith('video/')}">
+
+                <video controls>
+
+                    <source
+                            th:src="@{'/files/view/' + ${file.id}}"
+                            th:type="${file.fileType}">
+
+                    Your browser does not support video playback.
+
+                </video>
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- PDF -->
+            <!-- ================================= -->
+
+            <div
+                    th:if="${file.fileType == 'application/pdf'}">
+
+                <iframe
+                        th:src="@{'/files/view/' + ${file.id}}">
+                </iframe>
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- TEXT -->
+            <!-- ================================= -->
+
+            <div
+                    th:if="${file.fileType == 'text/plain'}">
+
+                <div
+                        class="text-preview"
+                        th:id="'text-' + ${file.id}">
+
+                    Loading text...
+
+                </div>
+
+                <script>
+
+                    document
+                        .querySelectorAll(
+                            '[id^="text-"]'
+                        )
+                        .forEach(function(element) {
+
+                            const id =
+                                element.id.replace(
+                                    'text-',
+                                    ''
+                                );
+
+                            fetch('/files/view/' + id)
+                                .then(response =>
+                                    response.text()
+                                )
+                                .then(data => {
+                                    element.textContent = data;
+                                })
+                                .catch(error => {
+                                    element.textContent =
+                                        'Unable to load text';
+                                });
+
+                        });
+
+                </script>
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- DOCX / XLSX / OTHER FILES -->
+            <!-- ================================= -->
+
+            <div
+                    th:if="${file.fileType != null
+                    and
+                    !file.fileType.startsWith('image/')
+                    and
+                    !file.fileType.startsWith('audio/')
+                    and
+                    !file.fileType.startsWith('video/')
+                    and
+                    file.fileType != 'application/pdf'
+                    and
+                    file.fileType != 'text/plain'}">
+
+                <p>
+                    Preview is not available in the browser.
+                </p>
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- BUTTONS -->
+            <!-- ================================= -->
+
+            <div class="buttons">
+
+                <a
+                        th:href="@{'/files/download/' + ${file.id}}">
+
+                    <button
+                            type="button"
+                            class="download">
+
+                        Download
+
+                    </button>
+
+                </a>
+
+
+                <form
+                        th:action="@{'/files/delete/' + ${file.id}}"
+                        method="post">
+
+                    <button
+                            type="submit"
+                            class="delete">
+
+                        Delete
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
