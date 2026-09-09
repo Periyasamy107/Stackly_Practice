@@ -353,3 +353,7 @@ Projects:
 3. ORM relationship theory.
 
 
+09-09-2026 (Wednesday)
+======================
+1. ORM relationship code example.
+2. Basic spring security (optional)
